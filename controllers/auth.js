@@ -14,7 +14,7 @@ controller.login = async (req, res) => {
 
   if (user) {
     const token = jwt.sign(user, req.app.get('secret'), {
-      expiresIn: 600
+      expiresIn: 30 //seconds
     });
 
     const refreshToken = randtoken.uid(256);

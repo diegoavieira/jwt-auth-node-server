@@ -15,6 +15,7 @@ const passportOpts = {
   secretOrKey: SECRET
 };
 
+app.set('port', 5200);
 app.set('secret', SECRET);
 
 app.use(bodyParser.json());
@@ -46,6 +47,7 @@ passport.serializeUser((user, done) => {
 
 const authenticate = passport.authenticate('jwt');
 
+// routes
 authRoutes(app, authenticate);
 
 app.use('*', (req, res) => {
